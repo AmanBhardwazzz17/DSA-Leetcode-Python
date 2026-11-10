@@ -6,21 +6,20 @@
 
 class Solution:
     def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        # Meeting Point
         slow = fast = head
         while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             if slow == fast:
-                break
+                break 
         else:
+            # Loop hi nahi hai
             return None
+        # Start point nikalo
         slow = head
         while slow != fast:
             slow = slow.next
             fast = fast.next
         return slow
 
-        
-
-
-        
